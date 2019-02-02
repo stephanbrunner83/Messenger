@@ -1,6 +1,14 @@
 {
     "name": "Conversation",
-    "fields": [],
+    "fields": [
+        {
+            "fieldName": "topic",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
     "relationships": [
         {
             "relationshipType": "one-to-many",
