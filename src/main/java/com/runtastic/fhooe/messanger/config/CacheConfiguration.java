@@ -33,6 +33,10 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            cm.createCache(com.runtastic.fhooe.messanger.domain.Conversation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.runtastic.fhooe.messanger.domain.Conversation.class.getName() + ".messages", jcacheConfiguration);
+            cm.createCache(com.runtastic.fhooe.messanger.domain.Participant.class.getName(), jcacheConfiguration);
+            cm.createCache(com.runtastic.fhooe.messanger.domain.Message.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

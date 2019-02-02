@@ -1,0 +1,39 @@
+entity Conversation {
+	topic String required
+    
+}
+
+entity Participant {
+	firstName String required
+    lastName String required
+    email String required
+}
+
+entity Message {
+	content String required
+}
+
+
+relationship OneToMany  {
+	Conversation to Message{conversation}
+}
+
+
+relationship ManyToOne  {
+	Message{sender required} to Participant,
+    Message{receiver required} to Participant,
+}
+
+// Set pagination options
+//paginate Conversation, Message, User with pager
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+filter *
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

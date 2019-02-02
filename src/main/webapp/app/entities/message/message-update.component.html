@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-message-heading">Create or edit a Message</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!message.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="message.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_content">Content</label>
+                    <input type="text" class="form-control" name="content" id="field_content"
+                        [(ngModel)]="message.content" required/>
+                    <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.content?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sender">Sender</label>
+                    <select class="form-control" id="field_sender" name="sender" [(ngModel)]="message.senderId"  required>
+                        <option *ngIf="!editForm.value.sender" [ngValue]="null" selected></option>
+                        <option [ngValue]="participantOption.id" *ngFor="let participantOption of participants; trackBy: trackParticipantById">{{participantOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.sender?.dirty && editForm.controls.sender?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sender?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_receiver">Receiver</label>
+                    <select class="form-control" id="field_receiver" name="receiver" [(ngModel)]="message.receiverId"  required>
+                        <option *ngIf="!editForm.value.receiver" [ngValue]="null" selected></option>
+                        <option [ngValue]="participantOption.id" *ngFor="let participantOption of participants; trackBy: trackParticipantById">{{participantOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.receiver?.dirty && editForm.controls.receiver?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.receiver?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_conversation">Conversation</label>
+                    <select class="form-control" id="field_conversation" name="conversation" [(ngModel)]="message.conversationId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conversationOption.id" *ngFor="let conversationOption of conversations; trackBy: trackConversationById">{{conversationOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
