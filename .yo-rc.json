@@ -31,5 +31,8 @@
     "clientPackageManager": "npm",
     "skipClient": true,
     "skipUserManagement": true
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom"
   }
 }
