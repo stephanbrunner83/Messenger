@@ -1,0 +1,35 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.runtastic.fhooe.messanger"
+    },
+    "jhipsterVersion": "5.8.1",
+    "applicationType": "monolith",
+    "baseName": "Messanger",
+    "packageName": "com.runtastic.fhooe.messanger",
+    "packageFolder": "com/runtastic/fhooe/messanger",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YmZmZTJhNDljNDlmZTU1MWVlNzJmYTRhOWVmZDcwMzFkY2Q2OTQxNzNjZjZiYjkyMTI5ZjE2NmVlYWY4MDY1ZGIwYjkwOWM5MDA3ZDcyNmYyNWY3Yjc0ZTdlMWQzZjkzM2RhZmExMDliYzY1MGEyMTRkNGIyNmY3MTkxYmI4YTA=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
