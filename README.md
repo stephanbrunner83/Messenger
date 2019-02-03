@@ -1,4 +1,4 @@
-# Messanger
+# Messenger
 
 This application was generated using JHipster 5.8.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.1](https://www.jhipster.tech/documentation-archive/v5.8.1).
 
@@ -89,7 +89,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the Messanger application for production, run:
+To optimize the Messenger application for production, run:
 
     ./gradlew -Pprod clean bootWar
 
