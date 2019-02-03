@@ -2,7 +2,9 @@ package com.runtastic.fhooe.messanger.service;
 
 import com.runtastic.fhooe.messanger.service.dto.ParticipantDTO;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.Optional;
 
 /**
@@ -21,9 +23,10 @@ public interface ParticipantService {
     /**
      * Get all the participants.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<ParticipantDTO> findAll();
+    Page<ParticipantDTO> findAll(Pageable pageable);
 
 
     /**

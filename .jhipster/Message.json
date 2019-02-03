@@ -37,7 +37,7 @@
     "changelogDate": "20190202201217",
     "entityTableName": "message",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "pagination",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": true,
     "fluentMethods": true,

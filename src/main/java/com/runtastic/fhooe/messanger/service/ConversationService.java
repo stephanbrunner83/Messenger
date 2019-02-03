@@ -2,7 +2,9 @@ package com.runtastic.fhooe.messanger.service;
 
 import com.runtastic.fhooe.messanger.service.dto.ConversationDTO;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.Optional;
 
 /**
@@ -21,9 +23,10 @@ public interface ConversationService {
     /**
      * Get all the conversations.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<ConversationDTO> findAll();
+    Page<ConversationDTO> findAll(Pageable pageable);
 
 
     /**

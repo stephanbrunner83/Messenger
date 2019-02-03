@@ -33,6 +33,8 @@ dto * with mapstruct
 // Set service options to all except few
 service all with serviceImpl
 
+paginate Participant, Message, Conversation with pagination
+
 filter *
 
 // Set an angular suffix

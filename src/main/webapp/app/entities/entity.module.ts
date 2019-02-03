@@ -51,6 +51,30 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'message',
                 loadChildren: './message/message.module#MessangerMessageModule'
+            },
+            {
+                path: 'conversation',
+                loadChildren: './conversation/conversation.module#MessangerConversationModule'
+            },
+            {
+                path: 'participant',
+                loadChildren: './participant/participant.module#MessangerParticipantModule'
+            },
+            {
+                path: 'message',
+                loadChildren: './message/message.module#MessangerMessageModule'
+            },
+            {
+                path: 'conversation',
+                loadChildren: './conversation/conversation.module#MessangerConversationModule'
+            },
+            {
+                path: 'participant',
+                loadChildren: './participant/participant.module#MessangerParticipantModule'
+            },
+            {
+                path: 'message',
+                loadChildren: './message/message.module#MessangerMessageModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

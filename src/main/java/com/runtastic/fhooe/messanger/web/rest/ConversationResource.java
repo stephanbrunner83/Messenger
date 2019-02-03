@@ -2,12 +2,17 @@ package com.runtastic.fhooe.messanger.web.rest;
 import com.runtastic.fhooe.messanger.service.ConversationService;
 import com.runtastic.fhooe.messanger.web.rest.errors.BadRequestAlertException;
 import com.runtastic.fhooe.messanger.web.rest.util.HeaderUtil;
+import com.runtastic.fhooe.messanger.web.rest.util.PaginationUtil;
 import com.runtastic.fhooe.messanger.service.dto.ConversationDTO;
 import com.runtastic.fhooe.messanger.service.dto.ConversationCriteria;
 import com.runtastic.fhooe.messanger.service.ConversationQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -81,14 +86,16 @@ public class ConversationResource {
     /**
      * GET  /conversations : get all the conversations.
      *
+     * @param pageable the pagination information
      * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of conversations in body
      */
     @GetMapping("/conversations")
-    public ResponseEntity<List<ConversationDTO>> getAllConversations(ConversationCriteria criteria) {
+    public ResponseEntity<List<ConversationDTO>> getAllConversations(ConversationCriteria criteria, Pageable pageable) {
         log.debug("REST request to get Conversations by criteria: {}", criteria);
-        List<ConversationDTO> entityList = conversationQueryService.findByCriteria(criteria);
-        return ResponseEntity.ok().body(entityList);
+        Page<ConversationDTO> page = conversationQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/conversations");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
     /**
