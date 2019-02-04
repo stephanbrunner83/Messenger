@@ -18,7 +18,7 @@ Download your proper package from https://nodejs.org/en/download/
 
 To start the Messenger application run:
 
-    ./gradlew
+    ./gradlew or gradlew.bat
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
