@@ -19,6 +19,7 @@ public class ParticipantDTO extends AbstractAuditingDTO implements Serializable 
     @NotNull
     private String email;
 
+    private String avatar;
 
     public Long getId() {
         return id;
@@ -51,6 +52,8 @@ public class ParticipantDTO extends AbstractAuditingDTO implements Serializable 
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getAvatar() { return "https://robohash.org/"+email; }
 
     @Override
     public boolean equals(Object o) {
