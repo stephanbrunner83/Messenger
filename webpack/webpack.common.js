@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const rxPaths = require('rxjs/_esm5/path-mapping');
 
 const utils = require('./utils.js');
 
@@ -10,8 +9,7 @@ module.exports = (options) => ({
         extensions: ['.ts', '.js'],
         modules: ['node_modules'],
         alias: {
-            app: utils.root('src/main/webapp/app/'),
-            ...rxPaths()
+            app: utils.root('src/main/webapp/app/')
         }
     },
     stats: {
